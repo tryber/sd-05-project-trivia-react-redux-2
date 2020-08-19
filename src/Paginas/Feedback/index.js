@@ -28,7 +28,7 @@ class Feedback extends React.Component {
           <div data-testid="feedback-text">Mandou bem!</div>
         )}
         <div>Você acertou <span data-testid="feedback-total-question">
-        {assertions}</span>questões</div>
+          {assertions}</span>questões</div>
         <div>Um total de <span data-testid="feedback-total-score">{score}</span> pontos</div>
         <Link to="/">
           <button type="button" data-testid="btn-play-again">
