@@ -5,19 +5,19 @@ import PropTypes from 'prop-types';
 import HeaderJogo from '../Tela-Jogo/components/HeaderJogo';
 
 class Feedback extends React.Component {
-  componentDidMount () {
+  componentDidMount() {
     const { name, score, picture } = this.props;
     const state = JSON.parse(localStorage.getItem('ranking'));
     const obj = {
-     name, 
-     score, 
-     picture,
-    }
-    if(state) return localStorage.setItem('ranking', JSON.stringify([...state, obj]))
-    return localStorage.setItem('ranking', JSON.stringify([obj]))
+      name,
+      score,
+      picture,
+    };
+    if (state) return localStorage.setItem('ranking', JSON.stringify([...state, obj]));
+    return localStorage.setItem('ranking', JSON.stringify([obj]));
   }
 
-  render () {
+  render() {
     const { assertions, score } = this.props;
     return (
       <div>
@@ -27,7 +27,8 @@ class Feedback extends React.Component {
         ) : (
           <div data-testid="feedback-text">Mandou bem!</div>
         )}
-        <div>Você acertou <span data-testid="feedback-total-question">{assertions}</span>questões</div>
+        <div>Você acertou <span data-testid="feedback-total-question">
+        {assertions}</span>questões</div>
         <div>Um total de <span data-testid="feedback-total-score">{score}</span> pontos</div>
         <Link to="/">
           <button type="button" data-testid="btn-play-again">
@@ -40,7 +41,8 @@ class Feedback extends React.Component {
           </button>
         </Link>
       </div>
-  )};
+    );
+  }
 }
 
 const mapStateToProps = (state) => ({
