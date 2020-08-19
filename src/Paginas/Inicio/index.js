@@ -1,24 +1,28 @@
 import React from 'react';
-import { fetchToken, fetchQuestions } from '../../Redux/Action/apiAction';
 import { connect } from 'react-redux';
-import { MD5 } from 'crypto-js';
-import { dadosJogador } from '../../Redux/Action/UserAction';
 import { Redirect } from 'react-router-dom';
+import { MD5 } from 'crypto-js';
+import PropTypes from 'prop-types';
+import { dadosJogador } from '../../Redux/Action/UserAction';
+import { fetchToken, fetchQuestions } from '../../Redux/Action/apiAction';
+
 class Inicio extends React.Component {
   constructor(props) {
     super(props);
     this.state = { name: '', email: '', redirect: false };
     this.receberApi = this.receberApi.bind(this);
   }
+
   receberApi() {
     const { name, email } = this.state;
-    const { fetchToken, fetchQuestions, playerDados } = this.props;
-    fetchToken().then(({ token }) => {
-      fetchQuestions(token);
+    const { chave, questions, playerDados } = this.props;
+    chave().then(({ token }) => {
+      questions(token);
     });
     playerDados(name, MD5(email).toString());
     this.setState({ redirect: true });
   }
+
   render() {
     const { name, email, redirect } = this.state;
     return redirect ? (
@@ -49,7 +53,7 @@ class Inicio extends React.Component {
           data-testid="btn-play"
           type="button"
           onClick={this.receberApi}
-          disabled={name && email ? false : true}
+          disabled={!(name && email)}
         >
           Jogar
         </button>
@@ -61,8 +65,15 @@ class Inicio extends React.Component {
   }
 }
 const mapDispatchToProps = {
-  fetchToken,
-  fetchQuestions,
+  chave: fetchToken,
+  questions: fetchQuestions,
   playerDados: dadosJogador,
 };
 export default connect(null, mapDispatchToProps)(Inicio);
+Inicio.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  fetchQuestions: PropTypes.func.isRequired,
+  fetchToken: PropTypes.func.isRequired,
+  playerDados: PropTypes.func.isRequired,
+};

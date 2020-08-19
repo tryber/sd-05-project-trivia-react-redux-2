@@ -1,8 +1,9 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Inicio from './Paginas/Inicio';
-import { Switch, Route } from 'react-router-dom';
 import TelaJogo from './Paginas/Tela-Jogo';
+
 export default function App() {
   return (
     <div className="App">

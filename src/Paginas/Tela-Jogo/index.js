@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 class TelaJogo extends React.Component {
   render() {
     const { name, hash } = this.props;
@@ -27,3 +29,7 @@ const mapStateToProps = (state) => ({
   hash: state.user.email,
 });
 export default connect(mapStateToProps)(TelaJogo);
+TelaJogo.propTypes = {
+  name: PropTypes.string.isRequired,
+  hash: PropTypes.string.isRequired,
+};

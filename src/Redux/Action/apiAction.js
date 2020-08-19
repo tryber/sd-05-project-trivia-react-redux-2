@@ -1,4 +1,5 @@
 import { getToken, getQuestions } from '../../APi/api';
+
 export const REQUEST_TOKEN = 'REQUEST_TOKEN';
 export const RECEIVE_TOKEN = 'RECEIVE_TOKEN';
 export const REQUEST_QUESTIONS = 'REQUEST_QUESTIONS';
