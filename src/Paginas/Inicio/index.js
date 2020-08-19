@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { MD5 } from 'crypto-js';
+import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { dadosJogador } from '../../Redux/Action/UserAction';
 import { fetchToken, fetchQuestions } from '../../Redux/Action/apiAction';
@@ -18,8 +17,9 @@ class Inicio extends React.Component {
     const { chave, questions, playerDados } = this.props;
     chave().then(({ token }) => {
       questions(token);
+      localStorage.setItem('token', token);
     });
-    playerDados(name, MD5(email).toString());
+    playerDados(name, email);
     this.setState({ redirect: true });
   }
 
@@ -49,9 +49,7 @@ class Inicio extends React.Component {
         >
           Jogar
         </button>
-        <button data-testid="btn-settings" type="button">
-          Configurações
-        </button>
+        <Link to="/config"><button data-testid="btn-settings" type="button">Setting</button></Link>
       </div>
       );
   }

@@ -3,7 +3,7 @@ import React from 'react';
 function Config() {
   return (
     <div>
-      <h1 data-testid="settings-title">Xablau</h1>
+      <h1 data-testid="settings-title">Configurações</h1>
     </div>
   );
 }
