@@ -15,7 +15,7 @@ export default function App() {
         <Route path="/game" component={TelaJogo} />
         <Route path="/config" component={Config} />
         <Route path="/feedback" component={Feedback} />
-        <Route parth="/ranking" component={Ranking} />  
+        <Route parth="/ranking" component={Ranking} />
       </Switch>
     </div>
   );
