@@ -27,7 +27,7 @@ class HeaderJogo extends React.Component {
 }
 const mapStateToProps = (state) => ({
   name: state.user.player.name,
-  hash: MD5(state.user.email).toString(),
+  hash: MD5(state.user.player.gravatarEmail).toString(),
   score: state.user.player.score,
 });
 export default connect(mapStateToProps)(HeaderJogo);

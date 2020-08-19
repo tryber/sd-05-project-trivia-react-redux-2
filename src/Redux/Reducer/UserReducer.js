@@ -31,8 +31,8 @@ const playerStorage = (state, action) =>
       ...state,
       player: {
         ...state.player,
-        score: action.value,
-        assertions: state.player.assertions,
+        score: state.player.score + action.value,
+        assertions: state.player.assertions + 1,
       },
     }),
   );

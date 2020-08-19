@@ -18,7 +18,7 @@ class Respostas extends React.Component {
   answerQuestion(resposta, timer, difficulty) {
     const { score, answer } = this.props;
     if (resposta) {
-      const value = 10 + (timer * dif[difficulty]);
+      const value = (10 + (timer * dif[difficulty]));
       score(value);
     }
     answer();
