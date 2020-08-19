@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import './App.css';
 import Inicio from './Paginas/Inicio';
 import TelaJogo from './Paginas/Tela-Jogo';
 import Config from './Paginas/Config';
