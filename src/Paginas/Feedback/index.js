@@ -12,7 +12,7 @@ const Feedback = ({ assertions, score }) => (
     ) : (
       <div data-testid="feedback-text">Mandou bem!</div>
     )}
-    <div data-testid="feedback-total-question">Você acertou {assertions} questões</div>
+    <div>Você acertou <span data-testid="feedback-total-question">{assertions}</span>questões</div>
     <div>Um total de <span data-testid="feedback-total-score">{score}</span> pontos</div>
     <Link to="/">
       <button type="button" data-testid="btn-play-again">
