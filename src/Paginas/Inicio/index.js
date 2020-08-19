@@ -28,31 +28,31 @@ class Inicio extends React.Component {
     return redirect ? (
       <Redirect to="/game" />
     ) : (
-        <div>
-          <input
-            data-testid="input-player-name"
-            type="text"
-            placeholder="name"
-            onChange={(event) => this.setState({ name: event.target.value })}
-          />
-          <input
-            data-testid="input-gravatar-email"
-            type="text"
-            placeholder="email"
-            onChange={(event) => this.setState({ email: event.target.value })}
-          />
-          <button
-            data-testid="btn-play"
-            type="button"
-            onClick={this.receberApi}
-            disabled={!(name && email)}
-          >
-            Jogar
+      <div>
+        <input
+          data-testid="input-player-name"
+          type="text"
+          placeholder="name"
+          onChange={(event) => this.setState({ name: event.target.value })}
+        />
+        <input
+          data-testid="input-gravatar-email"
+          type="text"
+          placeholder="email"
+          onChange={(event) => this.setState({ email: event.target.value })}
+        />
+        <button
+          data-testid="btn-play"
+          type="button"
+          onClick={this.receberApi}
+          disabled={!(name && email)}
+        >
+          Jogar
         </button>
-          <button data-testid="btn-settings" type="button">
-            Configurações
+        <button data-testid="btn-settings" type="button">
+          Configurações
         </button>
-        </div>
+      </div>
       );
   }
 }
