@@ -43,7 +43,7 @@ const userReducer = (state = initialState, action) => {
       loginStorage(state, action);
       return {
         ...state,
-        player: { ...state.player, name: action.name, gravatarEmail: action.email },
+        player: { ...state.player, name: action.name, gravatarEmail: action.email, score: 0, assertions: 0 },
       };
     case GIVE_ANSWER:
       return { ...state, respondido: true };
