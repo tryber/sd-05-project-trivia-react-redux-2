@@ -3,18 +3,17 @@ import { Link } from 'react-router-dom';
 import { MD5 } from 'crypto-js';
 
 const Ranking = () => {
-  const rank = JSON.parse(localStorage.getItem('ranking'))
-  console.log(rank);
+  const rank = JSON.parse(localStorage.getItem('ranking'));
   return (
     <div>
       {rank.map((item, index) => {
         const hash = MD5(item.picture).toString();
         return (
           <div>
-            <span>{item.name}</span>
-            <span>{item.score}</span>
+            <span data-testid={`player-name-${index}`}>{item.name}</span>
+            <span data-testid={`player-score-${index}`}>{item.score}</span>
             <img src={`https://www.gravatar.com/avatar/${hash}`} alt="" />
-          </div>)
+          </div>);
       })}
       <div data-testid="ranking-title">Ranking</div>
       <Link to="/">
