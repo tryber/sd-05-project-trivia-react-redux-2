@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { MD5 } from 'crypto-js';
 
 const Ranking = () => {
-  const rank = JSON.parse(localStorage.getItem('ranking'));
+  const rank = JSON.parse(localStorage.getItem('ranking')).sort((a,b) => b.score - a.score);
   return (
     <div>
       {rank.map((item, index) => {
