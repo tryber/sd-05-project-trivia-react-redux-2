@@ -19,6 +19,7 @@ const loginStorage = (state, action) =>
         ...state.player,
         name: action.name,
         assertions: 0,
+        score: 0,
         gravatarEmail: action.email,
       },
     }),
@@ -43,7 +44,13 @@ const userReducer = (state = initialState, action) => {
       loginStorage(state, action);
       return {
         ...state,
-        player: { ...state.player, name: action.name, gravatarEmail: action.email },
+        player: {
+          ...state.player,
+          assertions: 0,
+          score: 0,
+          name: action.name,
+          gravatarEmail: action.email,
+        },
       };
     case GIVE_ANSWER:
       return { ...state, respondido: true };
@@ -53,15 +60,12 @@ const userReducer = (state = initialState, action) => {
         ...state,
         player: {
           ...state.player,
-          assertions: (state.player.assertions + 1),
-          score: (state.player.score + action.value),
+          assertions: state.player.assertions + 1,
+          score: state.player.score + action.value,
         },
       };
     case NEXT_QUESTION:
-      return {
-        ...state,
-        respondido: false,
-      };
+      return { ...state, respondido: false };
     default:
       return state;
   }

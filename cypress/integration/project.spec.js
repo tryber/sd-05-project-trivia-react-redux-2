@@ -351,7 +351,7 @@ describe('Deve existir um botão para ir ao início', () => {
   });
 });
 
-describe('Apresentação do _ranking_', () => {
+describe.only('Apresentação do _ranking_', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
     cy.clearLocalStorage();
